@@ -1,0 +1,23 @@
+1)  Creating a directory:
+    mkdir  java-docker-application
+
+2) create sample java class:
+   class Sample{ 
+   public static void main(String[] args)  { 
+   System.out.println("This is java application by using docker ");
+   } 
+   }
+   
+3) create Dockerfile:
+   FROM java:8
+   COPY . /var/www/java
+   WORKDIR /var/www/java
+   RUN javac Sample.java
+   CMD ["java", "Sample"]
+   
+4) Building a Docker Image:
+   docker build -t java-application .
+   
+5) Run java app
+   docker run java-application
+   
